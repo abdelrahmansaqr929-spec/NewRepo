@@ -157,7 +157,32 @@
             Console.WriteLine("Except: " + string.Join(", ", except));
             var small = new HashSet<int> { 1, 2 };
             Console.WriteLine("Is {1,2} a subset of A? " + small.IsSubsetOf(a));
-            #endregion 
+            #endregion
+            #region answer05
+
+            var queue = new Queue<string>();
+            queue.Enqueue("Report.pdf");
+            queue.Enqueue("Invoice.pdf");
+            queue.Enqueue("Letter.docx");
+            queue.Enqueue("Resume.pdf");
+            queue.Enqueue("Photo.jpg");
+
+            foreach (var doc in queue)
+                Console.WriteLine(doc);
+            Console.WriteLine("Count: " + queue.Count);
+
+            Console.WriteLine("Next to print: " + queue.Peek());
+
+            while (queue.Count > 0)
+            {
+                string doc = queue.Dequeue();
+                Console.WriteLine("Printing: " + doc);
+            }
+
+            bool success = queue.TryDequeue(out string item);
+            Console.WriteLine("TryDequeue succeeded? " + success);
+            Console.WriteLine("Item: " + (item ?? "null"));
+            #endregion
 
         }
     }
