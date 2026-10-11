@@ -77,7 +77,31 @@
                 Console.WriteLine(text);
             }
             #endregion
+            #region answer02
+   
+            var board = new SortedDictionary<int, string>();
+            board.Add(500, "Ahmed");
+            board.Add(200, "Sara");
+            board.Add(800, "Ali");
+            board.Add(350, "Mona");
 
+            foreach (var p in board)
+                Console.WriteLine(p.Key + " = " + p.Value);
+
+            Console.WriteLine("First key: " + board.Keys.First());
+            Console.WriteLine("First value: " + board.Values.First());
+
+            Console.WriteLine(board.ContainsKey(500));
+
+            if (board.TryGetValue(999, out var name))
+                Console.WriteLine(name);
+            else
+                Console.WriteLine("Not found");
+
+            board.Remove(200);
+            foreach (var p in board)
+                Console.WriteLine(p.Key + " = " + p.Value);
+            #endregion
         }
     }
 }
