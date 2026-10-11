@@ -102,6 +102,36 @@
             foreach (var p in board)
                 Console.WriteLine(p.Key + " = " + p.Value);
             #endregion
+            #region answer03
+       
+            var phoneBook = new Dictionary<string, string>();
+            phoneBook.Add("Ahmed", "0100000001");
+            phoneBook.Add("Sara", "0100000002");
+            phoneBook.Add("Ali", "0100000003");
+            phoneBook.Add("Mona", "0100000004");
+
+            phoneBook["Omar"] = "0100000005";
+
+            try
+            {
+                phoneBook.Add("Ahmed", "0111111111");
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            bool added = phoneBook.TryAdd("Ahmed", "0111111111");
+            Console.WriteLine("TryAdd succeeded? " + added);
+
+            Console.WriteLine("Contains Zed? " + phoneBook.ContainsKey("Zed"));
+
+            Console.WriteLine("Zed: " + phoneBook.GetValueOrDefault("Zed", "Not Found"));
+
+            Console.WriteLine("Keys: " + string.Join(", ", phoneBook.Keys));
+            Console.WriteLine("Values: " + string.Join(", ", phoneBook.Values));
+            #endregion
+
         }
     }
 }
