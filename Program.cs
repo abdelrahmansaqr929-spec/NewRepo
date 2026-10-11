@@ -183,6 +183,30 @@
             Console.WriteLine("TryDequeue succeeded? " + success);
             Console.WriteLine("Item: " + (item ?? "null"));
             #endregion
+            #region answer06
+ 
+            var history = new Stack<string>();
+            history.Push("google.com");
+            history.Push("github.com");
+            history.Push("stackoverflow.com");
+            history.Push("youtube.com");
+            history.Push("claude.ai");
+
+            Console.WriteLine("Current page: " + history.Peek());
+
+            for (int i = 0; i < 3; i++)
+            {
+                string left = history.Pop();
+                Console.WriteLine("Leaving: " + left);
+            }
+
+            Console.WriteLine("Current page: " + history.Peek());
+
+            history.Clear();
+            bool succes = history.TryPop(out string page);
+            Console.WriteLine("TryPop succeeded? " + success);
+            Console.WriteLine("Page: " + (page ?? "null"));
+            #endregion 
 
         }
     }
