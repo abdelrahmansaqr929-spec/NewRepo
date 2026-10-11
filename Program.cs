@@ -131,6 +131,33 @@
             Console.WriteLine("Keys: " + string.Join(", ", phoneBook.Keys));
             Console.WriteLine("Values: " + string.Join(", ", phoneBook.Values));
             #endregion
+            #region answer04
+            var emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+
+            Console.WriteLine("Count: " + emails.Count);
+
+            var a = new HashSet<int> { 1, 2, 3, 4, 5 };
+            var b = new HashSet<int> { 4, 5, 6, 7, 8 };
+
+            var union = new HashSet<int>(a);
+            union.UnionWith(b);
+            Console.WriteLine("Union: " + string.Join(", ", union));
+
+            var intersect = new HashSet<int>(a);
+            intersect.IntersectWith(b);
+            Console.WriteLine("Intersect: " + string.Join(", ", intersect));
+
+            var except = new HashSet<int>(a);
+            except.ExceptWith(b);
+            Console.WriteLine("Except: " + string.Join(", ", except));
+            var small = new HashSet<int> { 1, 2 };
+            Console.WriteLine("Is {1,2} a subset of A? " + small.IsSubsetOf(a));
+            #endregion 
 
         }
     }
